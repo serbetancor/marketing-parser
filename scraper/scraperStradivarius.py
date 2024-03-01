@@ -19,7 +19,7 @@ class StradivariusProductsScraper:
             reject_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
             reject_button.click()
         except TimeoutException:
-            print("El botón para rechazar las cookies no se encontró o no se pudo hacer clic en él.")
+            print("Cookies button not found.")
 
         try:
             menu_item = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.CLASS_NAME, "clickable-area")))
@@ -65,12 +65,12 @@ class StradivariusProductsScraper:
                 jsonData = { "categories": items_list }
                 json.dump(jsonData, output_file, indent=4)
 
-            print(f"Datos guardados en {self.output_file_path}")
+            print(f"Data saved in {self.output_file_path}")
 
         except TimeoutException:
-            print("Tiempo de espera excedido mientras se esperaban los elementos para cargar.")
+            print("Await time exceeded.")
         except ElementClickInterceptedException:
-            print("El elemento del menú está siendo interceptado por otro elemento en la página.")
+            print("Intercepted element.")
 
         finally:
             self.driver.quit()
@@ -87,7 +87,7 @@ class StradivariusProductsScraper:
         dead_urls = ["https://www.stradivarius.com/es/gift-card.html", "https://www.stradivarius.com/es/nueva-colecci%C3%B3n/ropa/compra-por-producto/promociones-c1020096049.html", "https://www.stradivarius.com/es/mujer/zapatos/special-prices-n2515"]
         products = []
         driver.get(url_section)
-        print("Intento entrar a -> ", url_section)
+        print("Trying to reach -> ", url_section)
         if url_section not in dead_urls:
             try:
                 elements = WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".sc-beySPh")))
@@ -137,7 +137,7 @@ class StradivariusProductsScraper:
                 driver.close()
                 driver.switch_to.window(original_window)
             except TimeoutException:
-                print("Tiempo de espera excedido mientras se esperaban los elementos para cargar.")
+                print("Await time exceeded.")
         else:
             driver.close()
             driver.switch_to.window(original_window)

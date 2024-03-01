@@ -19,7 +19,7 @@ class ZaraProductsScraper:
             reject_button = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable((By.ID, "onetrust-reject-all-handler")))
             reject_button.click()
         except TimeoutException:
-            print("El botón para rechazar las cookies no se encontró o no se pudo hacer clic en él.")
+            print("Cookies button not found.")
 
         try:
             menu_item = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CLASS_NAME, "layout-header-icon")))
@@ -29,13 +29,13 @@ class ZaraProductsScraper:
             for element in elements:
                 soup_ul = BeautifulSoup(element.get_attribute('outerHTML'), 'html.parser')
 
-                lista_items = soup_ul.find_all('li', class_='layout-categories-category', attrs={'data-layout': 'products-category-view'})
-                # print(lista_items)
-                for item in lista_items:
+                list_items = soup_ul.find_all('li', class_='layout-categories-category', attrs={'data-layout': 'products-category-view'})
+                # print(list_items)
+                for item in list_items:
                     print(item.text)
 
         except TimeoutException:
-            print("Tiempo de espera excedido mientras se esperaban los elementos para cargar.")
+            print("Await time exceeded.")
 
         print("Hi")
         
