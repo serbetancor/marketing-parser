@@ -23,6 +23,7 @@
         {
             "name": "ROPA",
             "number of items": 1996,
+            "average price": 22.29,
             "sections": [
                 {
                     "name": "Chaquetas",
@@ -124,6 +125,7 @@
         {
             "name": "STR TEEN",
             "number of items": 633,
+            "average price": 24.07,
             "sections": [
                 {
                     "name": "Todo",
@@ -185,6 +187,7 @@
         {
             "name": "CASUAL SPORT",
             "number of items": 250,
+            "average price": 20.54,
             "sections": [
                 {
                     "name": "Todo",
@@ -241,6 +244,7 @@
         {
             "name": "ZAPATOS",
             "number of items": 396,
+            "average price": 32.82,
             "sections": [
                 {
                     "name": "Todos",
@@ -287,6 +291,7 @@
         {
             "name": "ACCESORIOS",
             "number of items": 1470,
+            "average price": 11.1,
             "sections": [
                 {
                     "name": "Todo",
