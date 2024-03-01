@@ -7,7 +7,7 @@ def calculate_average(numbers):
     average = total / len(numbers)
     return average
 
-with open('./data/products.json', 'r') as jsonFile:
+with open('../data/products.json', 'r') as jsonFile:
     datos = json.load(jsonFile)
 
 prices = []
