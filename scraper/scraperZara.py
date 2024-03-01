@@ -24,20 +24,25 @@ class ZaraProductsScraper:
         try:
             menu_item = WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.CLASS_NAME, "layout-header-icon")))
             menu_item.click()
+            categories = []
 
             elements = WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".zds-carousel-item")))
-            for element in elements:
-                soup_ul = BeautifulSoup(element.get_attribute('outerHTML'), 'html.parser')
+            element = elements[0]  
+            soup_ul = BeautifulSoup(element.get_attribute('outerHTML'), 'html.parser')
 
-                list_items = soup_ul.find_all('li', class_='layout-categories-category', attrs={'data-layout': 'products-category-view'})
-                # print(list_items)
-                for item in list_items:
-                    print(item.text)
+            list_items = soup_ul.find_all('li', class_='layout-categories-category layout-categories-category--level-2', attrs={'data-layout': 'products-category-view'})
+            # print(list_items)
+            for item in list_items:
+                item = item.find('a')
+                if item:
+                    categories.append({ "name": item.text.strip(), "url": item['href'] })
+                    print("NAME -> ", item.text.strip(), "\nURL -> ", item['href'])
+
+            with open(self.output_file_path, 'w', encoding='utf-8') as output_file:
+                jsonData = { "categories": categories }
+                json.dump(jsonData, output_file, indent=4)
 
         except TimeoutException:
-            print("Await time exceeded.")
-
-        print("Hi")
-        
+            print("Await time exceeded.")        
 
 
