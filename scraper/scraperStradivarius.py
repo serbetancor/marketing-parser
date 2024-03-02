@@ -109,10 +109,8 @@ class StradivariusProductsScraper:
 
                         items = WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CLASS_NAME, "sc-iJrEMN")))
 
-                        i = 0
                         for item in items:
                             soup = BeautifulSoup(item.get_attribute('outerHTML'), 'html.parser')
-                            # print("ELEMENTO -> ", i, "\n..................................", soup, "\n..................................")
 
                             name = soup.find(class_='sc-beySPh dtUhOe').text.strip()
                             price = soup.find(class_='price').text.strip()
@@ -126,8 +124,6 @@ class StradivariusProductsScraper:
                                 
                             product = { "name": name, "url": url, "price": float(re.sub(r'[^\d,.]', '', price).replace(',', '.')) }
                             products.append(product)
-                            i = i+1
-
 
                         print("Getting products finished.")
                         
