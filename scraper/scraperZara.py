@@ -44,7 +44,7 @@ class ZaraProductsScraper:
                 todo.append(result)
 
             with open(self.output_file_path, 'w', encoding='utf-8') as output_file:
-                jsonData = { "categories": categories }
+                jsonData = { "categories": todo }
                 json.dump(jsonData, output_file, indent=4)
 
         except TimeoutException:
@@ -61,7 +61,6 @@ class ZaraProductsScraper:
 
         categories = []
         c_set = []
-
 
         driver.get(parsed_url)
 
@@ -110,11 +109,11 @@ class ZaraProductsScraper:
 
                 if c_set:
                     for item in c_set:
-                        if item['name'] and item['url'] and item['price']:
+                        if item['name'] and item['url'] and item['price'] and self.check_double(categories, item['url']):
                             print("Item -> ", i, " / ", len(items), " -> ", item['name'], item['url'], item['price'])
                             i = i + 1
                             categories.append(item)
-                elif name and url and price and product:
+                elif name and url and price and product and self.check_double(categories, url):
                     print("Item -> ", i, " / ", len(items), " -> ", name, url, price)
                     i = i + 1
                     categories.append(product)
@@ -170,3 +169,9 @@ class ZaraProductsScraper:
 
 
         return name, price, product, c_set
+    
+    def check_double(self, array, url):
+        for urls in array:
+            if urls['url'] == url:
+                return False
+        return True
