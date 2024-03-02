@@ -8,13 +8,13 @@ def calculate_average(numbers):
     return average
 
 with open('../data/productsStradivarius.json', 'r') as jsonFile:
-    datos = json.load(jsonFile)
+    data = json.load(jsonFile)
 
 prices = []
 categoryPrices = []
 todo = []
 sections = []
-for category in datos['categories']:
+for category in data['categories']:
     if category['section'] is None:
         for items in category['products']:
             prices.append(items['price'])
