@@ -1,6 +1,6 @@
 # Fashion Intelligence: Stradivarius & Zara Analysis
 
-Unlock Market Insights with Automated Web Scraping
+### Unlock Market Insights with Automated Web Scraping
 
 #### Features:
 - **Data Harvesting:** Effortlessly Gather Product Data from Leading Fashion Websites.
