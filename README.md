@@ -1,4 +1,4 @@
-### Fashion Intelligence: Stradivarius & Zara Analysis
+# Fashion Intelligence: Stradivarius & Zara Analysis
 
 Unlock Market Insights with Automated Web Scraping
 
@@ -9,8 +9,7 @@ Unlock Market Insights with Automated Web Scraping
 
 #### How to Get Started:
 1. Clone the Repository to Your Device.
-2. Navigate to the Project Directory.
-3. Run the Appropriate Scraper for Stradivarius or Zara.
+3. Run the Scraper for Stradivarius or Zara found in main.py.
 4. Sit Back and Let the Scraper Do the Work!
 
 #### Future Developments:
@@ -19,4 +18,4 @@ Unlock Market Insights with Automated Web Scraping
 - Expand Scraper Functionality for Additional E-commerce Websites.
 
 #### Questions or Collaborations?
-Feel Free to Reach Us at [serbetancor@gmail.com](mailto:serbetancor@gmail.com).
+Feel Free to Reach me at [serbetancor@gmail.com](mailto:serbetancor@gmail.com).
