@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, ElementClickInterceptedException
 from bs4 import BeautifulSoup
-import json, time
+import json, re, time
 
 class ZaraProductsScraper:
     def __init__(self, url, output_file_path):
