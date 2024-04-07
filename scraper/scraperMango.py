@@ -111,7 +111,7 @@ class MangoProductsScraper:
                     print(i, "->", product)
 
                 products.append(product)
-                i=i+1
+                i += 1
 
             print(len(li_elements))
 
