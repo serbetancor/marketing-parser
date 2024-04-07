@@ -85,7 +85,7 @@ class MangoProductsScraper:
                 soup = BeautifulSoup(li_element.get_attribute('outerHTML'), 'html.parser')
 
                 name = url = ""
-                price = "0.00"
+                price = 0.00
                 colours = 0
 
                 if soup.find(class_='layout-row md12 text-body-m') and soup.find(class_='H2rhU') and (soup.find(class_='PeSJ4 text-body-m') or soup.find(class_='PeSJ4 text-body-m GsPZp')):
@@ -104,7 +104,7 @@ class MangoProductsScraper:
                 product = {
                     "name": name,
                     "url": url,
-                    "price": price,
+                    "price": float(price),
                     "variety": colours
                 }
                 if name == "":
