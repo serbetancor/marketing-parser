@@ -1,4 +1,4 @@
-# Fashion Intelligence: Stradivarius & Zara Analysis
+# Fashion Intelligence: Stradivarius, Zara & Mango Analysis
 
 ### Unlock Market Insights with Automated Web Scraping
 
